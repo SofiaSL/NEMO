@@ -1,0 +1,20 @@
+\chapter{}
+
+Note que se $(x_n)$ converge para $L\in \mathbb{R}$, então $L=L^2-\frac{L}{2}\Rightarrow L\in\{0,\frac{3}{2}\}$. Além disso, seja $f(x)=x^2-\frac{x}{2}$ para todo $x\in \mathbb{R}$; temos $x_{n+1}=f(x_n)$ para cada $n\ge 0$.\\
+
+1) Se $x_0\in \{-1,\frac{3}{2}\},\ x_n=\frac{3}{2}\ \forall n\ge 1\Rightarrow \lim x_n=\frac{3}{2}$.\\
+
+2) Se $x_0\in (-\infty,-1)\cup (\frac{3}{2},+\infty)$, então $x_1>\frac{3}{2}$, e como $g(x):=x-f(x)=\frac{3}{2}x-x^2<0$ para todo $x>\frac{3}{2}$,temos $x_n\ge x_1>\frac{3}{2}\ \forall n\ge 1$, donde a sequência $(x_n)$ diverge.\\
+
+3) Se $x_0\in \left[0,\frac{3}{4}\right]$, note que $X:=f\left(\left[0,\frac{3}{4}\right]\right)=\left[-\frac{1}{16},\frac{3}{16}\right]$ é fechado (e portanto espaço métrico completo com a distância usual na reta) e tal que $f(X)\subset X$. Como $-\frac{5}{8}\le f'(x)\le -\frac{1}{8}\ \forall x\in X$, aplicando o TEorema do Valor Médio temos
+$$|f(a)-f(b)|\le \frac{5}{8}|a-b|\ \forall a,b\in X$$
+Pelo Teorema do Ponto Fixo de Banach, $(x_n)=(f^{n-1}(x_1))$ converge para o único ponto fixo de $f$ em $X$, i.e., $\lim x_n=0$.\\
+
+4) Se $x_0\in \left(\frac{3}{4},\frac{3}{2}\right)$, observe que  $x_1\in \left[0,\frac{3}{2}\right]$ e que $g_{|\left(\frac{3}{4},\frac{3}{2}\right)}$ tem as seguintes propriedades:\\
+a) $g_{|\left(\frac{3}{4},\frac{3}{2}\right)}>0$;\\
+b) $g_{|\left(\frac{3}{4},\frac{3}{2}\right)}$ é estritamente decrescente
+Suponha que $x_n\in \left(\frac{3}{4},\frac{3}{2}\right)$ para todo $n\ge 0$; então $\frac{3}{4}<x_n\le x_0<\frac{3}{2}$ e $g(x_n)\ge g(x_0)>0$ para todo $n\ge 0$. Portanto:
+$$x_0-x_n=\sum_{i=0}^{n-1} x_i-x_{i+1}=\sum_{i=0}^{n-1} x_i-f(x_i)=\sum_{i=0}^{n-1} g(x_i)\ge ng(x_0)\overset{n\to \infty}{\rightarrow} \infty$$
+$\textbf{ABSURDO!}$. Logo $x_k\in \left[0,\frac{3}{4}\right]$ para algum $k\ge 0$, donde $(x_n)=(f^{n-k})(x_k)$ converge para $0$ por $3$.
+
+5) Se $x_0\in (-1,0)\Rightarrow x_1\in \left(0,\frac{3}{2}\right)$, e por $3)$ e $4)$, $\lim x_n=0$.
