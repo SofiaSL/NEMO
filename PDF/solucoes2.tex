@@ -3,3 +3,39 @@
 Note que, se houver um jogador cuja lista possui o nome de todos os outros, tal lista deve ser a maior (no sentido de não haver outra com mais nomes) dentre a de todos os jogadores. Provaremos que qualquer lista com a maior quantidade de nomes tem o nome de todos os outros jogadores.\\
 
 Seja $A$ a lista de Arnaldo, que possui a maior quantidade de nomes dentre as listas. Suponha, por absurdo, que exista um jogador, Bernardo, que não está na lista $A$; seja $B$ a lista de Bernardo. Assim, Bernardo venceu Arnaldo e todos os competidores que Arnaldo venceu. Em particular, $B$ tem mais nomes que $A$, \textbf{absurdo!} Portanto $A$ tem os nomes de todos os jogadores exceto Arnaldo.
+
+\section{Problema 1.1.5 Additive Combinatorics, T. Tao and V. Vu}
+
+Pelo princípio de inclusão-exclusão, é fato que:
+
+$$1-\frac{|A\cup (B+x)|}{|Z|}\le \left(1-\frac{|A|}{|Z|}\right) \left(1-\frac{|B|}{|Z|}\right)\le 1-\frac{|A\cup (B+y)|}{|Z|}\; \Leftrightarrow$$
+
+$$\Leftrightarrow 1 - \frac{|A|+|B+x|-|A \cap (B+x)|}{|Z|}\le 1 - \frac{|A|}{|Z|} - \frac{|B|}{|Z|} + \frac{|A||B|}{|Z|^2}\le 1 - \frac{|A|+|B+y|-|A \cap (B+y)|}{|Z|} \Leftrightarrow$$
+
+$$\Leftrightarrow \; -\frac{|A|+|B|-|A \cap (B+x)|}{|Z|}\le - \frac{|A|}{|Z|} - \frac{|B|}{|Z|} + \frac{|A||B|}{|Z|^2}\le -\frac{|A|+|B|-|A \cap (B+y)|}{|Z|}\; \Leftrightarrow$$
+
+$$\Leftrightarrow \; \frac{|A\cap (B+x)|}{|Z|}\le \frac{|A||B|}{|Z|^2}\le \frac{|A\cap (B+y)|}{|Z|} \; \Leftrightarrow$$
+
+$$\Leftrightarrow \; |A\cap (B+x)||Z|\le |A||B|\le |A\cap (B+y)||Z| \hspace{1cm} (6.1)$$
+\newline
+Portanto, devemos provar que para quaisquer subconjuntos $A$ e $B$ de $Z$, existem $x,y\in Z$ que satisfazem (6.1).
+\newline \newline
+\textbf{Solução 1 (by Arjuna):}
+\newline
+Seja $B(z) := B+z$. Note que existem |Z| conjuntos (não necessariamente distintos) da forma $B+z,z\in Z$. Nesse sentido, note que cada $w\in Z$ pertence a $|B|$ desses conjuntos, pois para cada $b\in B$, temos que $w\in B(w-b)$. Assim, os elementos de $A$ aparecem $|A||B|$ vezes no total nos conjuntos $B(z),z\in Z$. Pelo princípio das casas dos pombos, pelo menos um desses conjuntos contém $\frac{|A||B|}{|Z|}$ elementos de $A$, ou seja:
+$$\frac{|A||B|}{|Z|}\le |A\cap (B+y)|\hspace{0.3cm} \text{para algum $y\in Z$}$$
+$$\Leftrightarrow \hspace{0.3cm} |A||B|\le |A\cap (B+y)||Z|\hspace{0.3cm} \text{para algum $y\in Z$}$$
+Ademais, ao menos um desses conjuntos contém no máximo $\frac{|A||B|}{|Z|}$ elementos de $A$ (prova-se-lo trivialmente por absurdo), em outras palavras:
+$$|A\cap (B+x)|\le \frac{|A||B|}{|Z|}\hspace{0.3cm} \text{para algum $x\in Z$}$$
+$$\Leftrightarrow \hspace{0.3cm}|A\cap (B+x)||Z|\le |A||B|\hspace{0.3cm} \text{para algum $x\in Z$}$$
+Como queríamos demonstrar.
+\newline \newline
+\textbf{Solução 2 (by Libardi):}
+\newline
+Seja $\Omega =\mathcal{P}(Z) = \{A|A\subseteq Z\}$. Nesse sentido, defina uma ação direita de $(Z,+)$ sobre $\Omega$ como $f:Z\times \Omega \rightarrow \Omega /f(x, A) = A+x$. Verificar que $f$ obedece aos axiomas de ação direita fica a cargo do leitor, mas vale relembrar a relação $|G_B||\mathcal{O}_B| = |Z|$, no qual $G_B$ é o grupo estabilizador de $B$ e $\mathcal{O}_B$ é a órbita de $B$. Nesse sentido, note que cada elemento $z\in Z$ pertence a $\frac{|B|}{|G_B|}$ conjuntos distintos de $\mathcal{O}_B$, pois para cada $w\in Z/z\in(B+w)$, temos que $(B+w)=(B+g)+w$ para todo $g\in G_B$. Sendo assim, os elementos de $A$ aparecem $\frac{|A||B|}{|G_B|}$ vezes nos conjuntos de $\mathcal{O}_B$. Pelo princípio da casa dos pombos, ao menos um dos conjuntos que pertence à $\mathcal{O}_B$ tem $\frac{|A||B|}{|G_B||\mathcal{O}_B|}$ elementos de $A$, ou seja:
+$$\frac{|A||B|}{|G_B||\mathcal{O}_B|}\le |A\cap (B+y)|\hspace{0.3cm} \text{para algum $y\in Z$}$$
+$$\Leftrightarrow \hspace{0.3cm} |A||B|\le |A\cap (B+y)||Z|\hspace{0.3cm} \text{para algum $y\in Z$}$$
+Ademais, ao menos um desses conjuntos contém no máximo $\frac{|A||B|}{|G_B||\mathcal{O}_B|}$ elementos de $A$ (prova-se-lo trivialmente por absurdo), em outras palavras:
+$$|A\cap (B+x)|\le \frac{|A||B|}{|G_B||\mathcal{O}_B|}\hspace{0.3cm} \text{para algum $x\in Z$}$$
+$$\Leftrightarrow \hspace{0.3cm}|A\cap (B+x)||Z|\le |A||B|\hspace{0.3cm} \text{para algum $x\in Z$}$$
+Como queríamos demonstrar.
